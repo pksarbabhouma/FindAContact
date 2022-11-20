@@ -28,10 +28,10 @@ pipeline {
         stage('deploy') {
             steps {
                 sh '''
-                    echo 'Deploying locally'
-                    sh '''
-                        java -jar target/FindAContactApp.jar
-                    '''
+                    echo 'Deploying and running locally'
+                    java -jar target/FindAContactApp.jar
+                    echo 'Will be deployed in Docker later'
+                '''
             }
         }
 
