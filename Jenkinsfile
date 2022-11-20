@@ -11,7 +11,7 @@ pipeline {
         stage ('Initialize Tools'){
             steps {
                 sh '''
-                    echo "PATH = ${PATH}"
+                    echo "JAVA_HOME = ${JAVA_HOME}"
                     echo "MAVEN_HOME = ${MAVEN_HOME}"
                 '''
             }
@@ -20,14 +20,18 @@ pipeline {
             steps {
                 sh '''
                     mvn clean package
-                    echo 'Building the pipeline'
+                    echo 'Pipeline build complete'
                 '''
             }
         }
 
         stage('deploy') {
             steps {
-                echo 'Pipeline will be deployed'
+                sh '''
+                    echo 'Deploying locally'
+                    sh '''
+                        java -jar target/FindAContactApp.jar
+                    '''
             }
         }
 
