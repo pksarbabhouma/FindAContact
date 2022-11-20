@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage {
+        stage ('Prepare'){
             steps {
                 echo 'Preparing the pipeline'
             }
