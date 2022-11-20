@@ -18,13 +18,16 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building the pipeline'
+                sh '''
+                    mvn clean package
+                    echo 'Building the pipeline'
+                '''
             }
         }
 
         stage('deploy') {
             steps {
-                echo 'Deploying the pipeline'
+                echo 'Pipeline will be deployed'
             }
         }
 
